@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية - جمال أحمد علي الرحبي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --darker: #1a2530;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: headerAnimation 1.5s ease-out;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+            transform: rotate(30deg);
+            animation: shine 8s infinite linear;
+        }
+        
+        @keyframes headerAnimation {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .personal-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .personal-info span {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+        
+        .personal-info span:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .personal-info i {
+            margin-left: 8px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+            transform: translateX(100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .card:hover::after {
+            transform: translateX(0);
+        }
+        
+        .card h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+        }
+        
+        .card h2 i {
+            margin-left: 12px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-item {
+            background: var(--light);
+            padding: 12px 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+        
+        .skill-item:hover::before {
+            opacity: 1;
+        }
+        
+        .skill-item span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Experience Items */
+        .experience-item, .education-item, .project-item, .course-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e0;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .experience-item::before, .education-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary);
+        }
+        
+        .experience-item:last-child, .education-item:last-child, .project-item:last-child, .course-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .experience-item h3, .education-item h3, .project-item h3, .course-item h3 {
+            color: var(--dark);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .company, .institute {
+            color: var(--secondary);
+            font-weight: 600;
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+        
+        .date {
+            color: #777;
+            font-size: 0.95rem;
+            display: inline-block;
+            padding: 3px 10px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            margin: 5px 0;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: var(--light);
+            padding: 12px 18px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 200px;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+            background: #e8f4fc;
+        }
+        
+        .contact-item i {
+            margin-left: 12px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin: 15px 0;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 5px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                -45deg, 
+                rgba(255, 255, 255, 0.2) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.2) 75%, 
+                transparent 75%, 
+                transparent
+            );
+            background-size: 20px 20px;
+            animation: move 1s linear infinite;
+        }
+        
+        @keyframes move {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 0; }
+        }
+        
+        /* Buttons */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.2), transparent);
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+        }
+        
+        .btn:hover::before {
+            transform: translateY(0);
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn i {
+            margin-left: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Rating */
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+        
+        .rating-text {
+            margin-right: 12px;
+            font-size: 0.95rem;
+            color: #777;
+        }
+        
+        .stars {
+            color: gold;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Floating Elements */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Particle Background */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.1);
+            animation: floatParticle 15s infinite linear;
+        }
+        
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100vw) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Print Styles */
+        @media print {
+            .back-to-top, .particles-container, .buttons {
+                display: none !important;
+            }
+            
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+            header {
+                box-shadow: none;
+            }
+        }
+
+        /* GitHub Corner */
+        .github-corner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+        
+        .github-corner svg {
+            fill: var(--primary);
+            color: white;
+        }
+        
+        /* Deployment Instructions */
+        .deployment-instructions {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--accent);
+        }
+        
+        .deployment-instructions h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .deployment-instructions h2 i {
+            margin-left: 12px;
+            color: var(--accent);
+        }
+        
+        .deployment-steps {
+            margin-left: 20px;
+        }
+        
+        .deployment-steps li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .deployment-steps a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .deployment-steps a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .deployment-instructions {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- GitHub Corner -->
+    <a href="https://github.com" class="github-corner" aria-label="View source on GitHub" target="_blank">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2c3e50; color:#fff; position: absolute; top: 0; left: 0; border: 0;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+    </a>
+    
+    <div class="container">
+        <header class="floating">
+            <h1>جمال أحمد علي الرحبي</h1>
+            <div class="subtitle">مطور ويب وتطبيقات موبايل ومختص تقنية معلومات</div>
+            <div class="personal-info">
+                <span><i class="fas fa-birthday-cake"></i> 26/10/1995</span>
+                <span><i class="fas fa-map-marker-alt"></i> صنعاء - صنعاء القديمة</span>
+                <span><i class="fas fa-phone"></i> 771783091</span>
+                <span><i class="fas fa-envelope"></i> jamalahmedalia@gmail.com</span>
+                <span><i class="fas fa-ring"></i> عازب</span>
+                <span><i class="fas fa-flag"></i> يمني</span>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="left-column">
+                <div class="card animate-on-scroll" data-aos="fade-right">
+                    <h2><i class="fas fa-user"></i> الهدف الوظيفي</h2>
+                    <p>أملك من القدرة على التواصل الفعال مع جميع أفراد العملية التعليمية والبرمجية بما يكفل تعزيز الفائدة المنشودة للشركة والعملاء، والتطوير من الشركة التي تبحث عن الإبداع والاحترافية البرمجية.</p>
+                </div>
+                
+                <div class="card animate-on-scroll" data-aos="fade-right" data-aos-delay="100">
+                    <h2><i class="fas fa-briefcase"></i> الخبرات العملية</h2>
+                    <div class="experience-item">
+                        <h3>مطور مواقع إلكترونية</h3>
+                        <div class="company">عمل حر (فريلانسر)</div>
+                        <div class="date">2020 - حتى الآن</div>
+                        <p>تطوير مجموعة من المواقع الإلكترونية ومتابعة احتياجات العملاء واستقبال طلبات العملاء الجديدة.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>مطور أنظمة</h3>
+                        <div class="company">شركة ثري كليكس للاستشارات التقنية</div>
+                        <div class="date">2021 - 2024</div>
+                        <p>تحليل الأنظمة وإنشاء وتطوير المواقع الإلكترونية ضمن فريق تطوير نظام 3Clicks ERP.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>مطور مواقع تجارة إلكترونية</h3>
+                        <div class="company">طريق الابتكار</div>
+                        <div class="date">حتى الآن - 12/2024</div>
+                        <p>تطوير موقع تجارة إلكترونية متكامل.</p>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll" data-aos="fade-right" data-aos-delay="200">
+                    <h2><i class="fas fa-graduation-cap"></i> المؤهلات التعليمية</h2>
+                    <div class="education-item">
+                        <h3>بكالوريوس تقنية معلومات (IT)</h3>
+                        <div class="institute">جامعة العلوم الحديثة - صنعاء</div>
+                        <div class="date">2015 - 2019</div>
+                        <p>بتقدير امتياز</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>ثانوية عامة</h3>
+                        <div class="institute">مدرسة ثانوية الكويت - صنعاء</div>
+                        <div class="date">2013 - 2014</div>
+                        <p>بتقدير جيد جدًا</p>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll" data-aos="fade-right" data-aos-delay="300">
+                    <h2><i class="fas fa-medal"></i> الدورات والشهادات</h2>
+                    <div class="course-item">
+                        <h3>دورة تطوير تطبيقات Android</h3>
+                        <div class="institute">جامعة العلوم الحديثة</div>
+                        <div class="date">شهر واحد</div>
+                    </div>
+                    <div class="course-item">
+                        <h3>دورة جرافكس</h3>
+                        <div class="institute">معهد الشباب</div>
+                        <div class="date">شهر واحد</div>
+                    </div>
+                    <div class="course-item">
+                        <h3>دورات في اللغة الإنجليزية</h3>
+                        <div class="institute">معهد xp للغات والكمبيوتر (2014)</div>
+                        <div class="institute">معهد نيوهرايزن (2020-2021)</div>
+                        <div class="date">بتقدير جيد جدًا</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="card animate-on-scroll" data-aos="fade-left">
+                    <h2><i class="fas fa-star"></i> المهارات التقنية</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item"><span>Oracle</span></div>
+                        <div class="skill-item"><span>PHP</span></div>
+                        <div class="skill-item"><span>Vue.js</span></div>
+                        <div class="skill-item"><span>Next.js</span></div>
+                        <div class="skill-item"><span>Nest.js</span></div>
+                        <div class="skill-item"><span>React</span></div>
+                        <div class="skill-item"><span>Python</span></div>
+                        <div class="skill-item"><span>FastAPI</span></div>
+                        <div class="skill-item"><span>GraphQL</span></div>
+                        <div class="skill-item"><span>Node.js</span></div>
+                        <div class="skill-item"><span>ASP.NET</span></div>
+                        <div class="skill-item"><span>MySQL</span></div>
+                        <div class="skill-item"><span>SQL Server</span></div>
+                        <div class="skill-item"><span>SQLite</span></div>
+                        <div class="skill-item"><span>Flutter</span></div>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll" data-aos="fade-left" data-aos-delay="100">
+                    <h2><i class="fas fa-tasks"></i> المهارات الاحترافية</h2>
+                    <div class="skills-list">
+                        <div class="skill">
+                            <div class="progress-container">
+                                <div class="progress-info">
+                                    <span>أجادة المحاسبة</span>
+                                    <span>ممتاز</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="progress-container">
+                                <div class="progress-info">
+                                    <span>تطوير تطبيقات الموبايل باستخدام Flutter</span>
+                                    <span>ممتاز</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="progress-container">
+                                <div class="progress-info">
+                                    <span>تطوير المواقع الإلكترونية باستخدام PHP</span>
+                                    <span>ممتاز</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="progress-container">
+                                <div class="progress-info">
+                                    <span>التعامل مع قواعد البيانات</span>
+                                    <span>ممتاز</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="progress-container">
+                                <div class="progress-info">
+                                    <span>صيانة شبكات الإنترنت وتركيبها</span>
+                                    <span>جيد جدًا</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="progress-container">
+                                <div class="progress-info">
+                                    <span>صيانة الحواسيب بجميع أنواعها</span>
+                                    <span>ممتاز</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll" data-aos="fade-left" data-aos-delay="200">
+                    <h2><i class="fas fa-project-diagram"></i> المشاريع</h2>
+                    <div class="project-item">
+                        <h3>تطبيق إدارة بيانات المستفيدين</h3>
+                        <div class="company">منظمة ساند</div>
+                        <div class="date">2018-2019</div>
+                    </div>
+                    <div class="project-item">
+                        <h3>نظام إدارة الموارد البشرية</h3>
+                        <div class="company">وزارة الداخلية</div>
+                        <div class="date">2019-2020</div>
+                    </div>
+                    <div class="project-item">
+                        <h3>نظام 3Clicks ERP</h3>
+                        <div class="company">شركة ثري كليكس</div>
+                        <div class="date">2021-2022</div>
+                    </div>
+                    <div class="project-item">
+                        <h3>نظام إدارة المنظمات المجتمعية</h3>
+                        <div class="company">المنظمات غير الربحية</div>
+                        <div class="date">2022-2023</div>
+                    </div>
+                    <div class="project-item">
+                        <h3>نظام السجل الزراعي</h3>
+                        <div class="company">المؤسسة العامة لتنمية وإنتاج الحبوب</div>
+                        <div class="date">2024</div>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll" data-aos="fade-left" data-aos-delay="300">
+                    <h2><i class="fas fa-language"></i> اللغات</h2>
+                    <div class="skill">
+                        <div class="progress-container">
+                            <div class="progress-info">
+                                <span>العربية (اللغة الأم)</span>
+                                <span>ممتاز</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="progress-container">
+                            <div class="progress-info">
+                                <span>الإنجليزية</span>
+                                <span>جيد جدًا</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="deployment-instructions">
+            <h2><i class="fas fa-cloud-upload-alt"></i> كيفية نشر السيرة الذاتية على الإنترنت</h2>
+            <ol class="deployment-steps">
+                <li><strong>إنشاء حساب على GitHub</strong> (إذا لم يكن لديك حساب) من خلال <a href="https://github.com/join" target="_blank">هذا الرابط</a></li>
+                <li><strong>إنشاء مستودع جديد</strong> باسم <code>my-cv</code> أو أي اسم تفضله</li>
+                <li><strong>رفع الملفات</strong> إلى المستودع عن طريق سحب وإسقاط ملف HTML أو استخدام الأوامر</li>
+                <li><strong>تفعيل GitHub Pages</strong> من خلال الذهاب إلى إعدادات المستودع (Settings) → Pages → اختيار فرع main → حفظ</li>
+                <li><strong>انتظر بضع دقائق</strong> ثم انتقل إلى العنوان <code>https://اسمك.github.io/my-cv</code> لمشاهدة سيرتك الذاتية على الإنترنت</li>
+            </ol>
+            <p>بدائل أخرى للنشر: <a href="https://www.netlify.com/" target="_blank">Netlify</a> أو <a href="https://vercel.com/" target="_blank">Vercel</a> وتقدم خصائص إضافية ومجانية أيضًا.</p>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> طباعة السيرة الذاتية</button>
+            <button class="btn btn-outline" onclick="downloadCV()"><i class="fas fa-download"></i> تحميل السيرة الذاتية</button>
+            <button class="btn btn-primary" onclick="shareCV()"><i class="fas fa-share-alt"></i> مشاركة السيرة الذاتية</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 - جميع الحقوق محفوظة | السيرة الذاتية لـ جمال أحمد علي الرحبي</p>
+        <p>تم تطوير هذا الموقع باستخدام HTML5 و CSS3 و JavaScript</p>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS library for scroll animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out',
+        });
+        
+        // Create particles background
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 5 and 20 pixels
+                const size = Math.random() * 15 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                
+                // Random animation delay
+                particle.style.animationDelay = `${Math.random() * 15}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animate progress bars
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+        }
+        
+        // Download CV function
+        function downloadCV() {
+            alert('سيتم تحميل السيرة الذاتية بصيغة PDF');
+            // في التطبيق الحقيقي، هنا سيتم إضافة كود لتحويل الصفحة إلى PDF
+        }
+        
+        // Share CV function
+        function shareCV() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'السيرة الذاتية - جمال أحمد علي الرحبي',
+                    text: 'اطلع على السيرة الذاتية لجمال أحمد علي الرحبي، مطور ويب وتطبيقات موبايل',
+                    url: window.location.href
+                })
+                .then(() => console.log('تم المشاركة بنجاح'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                alert('خاصية المشاركة غير مدعومة في متصفحك. يمكنك نسخ الرابط ومشاركته يدويًا.');
+            }
+        }
+        
+        // Initialize everything when page loads
+        window.addEventListener('load', () => {
+            createParticles();
+            animateProgressBars();
+            
+            // Animate elements on scroll
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
