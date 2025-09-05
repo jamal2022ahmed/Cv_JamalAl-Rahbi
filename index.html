@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>السيرة الذاتية - جمال أحمد علي الرحبي</title>
+    <title>السيرة الذاتية - جمال أحمد علي الرحبي | CV - Jamal Ahmed Al-Rahbi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
@@ -24,7 +25,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
         }
         
         body {
@@ -33,12 +33,47 @@
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
+            font-family: 'Cairo', 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        body.english {
+            direction: ltr;
+            font-family: 'Roboto', 'Cairo', sans-serif;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+        
+        /* Language Switch */
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: var(--shadow);
+        }
+        
+        .language-btn {
+            padding: 8px 15px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .language-btn.active {
+            background: var(--gradient);
+            color: white;
         }
         
         /* Header Styles */
@@ -288,35 +323,6 @@
             margin: 5px 0;
         }
         
-        /* Contact Info */
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            background: var(--light);
-            padding: 12px 18px;
-            border-radius: 10px;
-            flex: 1;
-            min-width: 200px;
-            transition: var(--transition);
-        }
-        
-        .contact-item:hover {
-            transform: translateX(5px);
-            background: #e8f4fc;
-        }
-        
-        .contact-item i {
-            margin-left: 12px;
-            color: var(--secondary);
-            font-size: 1.3rem;
-        }
-        
         /* Progress Bar */
         .progress-container {
             margin: 15px 0;
@@ -439,24 +445,6 @@
             font-size: 0.9rem;
         }
         
-        /* Rating */
-        .rating {
-            display: flex;
-            align-items: center;
-            margin-top: 8px;
-        }
-        
-        .rating-text {
-            margin-right: 12px;
-            font-size: 0.95rem;
-            color: #777;
-        }
-        
-        .stars {
-            color: gold;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-        
         /* Animation Classes */
         .animate-on-scroll {
             opacity: 0;
@@ -548,7 +536,7 @@
         
         /* Print Styles */
         @media print {
-            .back-to-top, .particles-container, .buttons {
+            .back-to-top, .particles-container, .buttons, .language-switch {
                 display: none !important;
             }
             
@@ -562,169 +550,195 @@
             }
         }
 
-        /* GitHub Corner */
-        .github-corner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-        }
-        
-        .github-corner svg {
-            fill: var(--primary);
-            color: white;
-        }
-        
-        /* Deployment Instructions */
-        .deployment-instructions {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 40px;
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--accent);
-        }
-        
-        .deployment-instructions h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .deployment-instructions h2 i {
+        /* RTL/LTR adjustments */
+        body:not(.english) .card h2 i {
             margin-left: 12px;
-            color: var(--accent);
+            margin-right: 0;
         }
         
-        .deployment-steps {
-            margin-left: 20px;
+        body.english .card h2 i {
+            margin-right: 12px;
+            margin-left: 0;
         }
         
-        .deployment-steps li {
-            margin-bottom: 15px;
-            line-height: 1.6;
+        body.english .personal-info i,
+        body.english .contact-item i {
+            margin-right: 8px;
+            margin-left: 0;
         }
         
-        .deployment-steps a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: var(--transition);
+        body.english .experience-item::before,
+        body.english .education-item::before,
+        body.english .project-item::before {
+            right: auto;
+            left: 0;
         }
         
-        .deployment-steps a:hover {
-            color: var(--primary);
-            text-decoration: underline;
+        body.english .experience-item,
+        body.english .education-item,
+        body.english .project-item,
+        body.english .course-item {
+            padding-right: 0;
+            padding-left: 20px;
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .btn {
-                padding: 12px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .deployment-instructions {
-                padding: 15px;
-            }
+        body.english .card {
+            border-left: none;
+            border-right: 5px solid var(--secondary);
+        }
+        
+        body.english .card::after {
+            right: auto;
+            left: 0;
+            transform: translateX(-100%);
+        }
+        
+        body.english .card:hover::after {
+            transform: translateX(0);
+        }
+        
+        /* Language specific styles */
+        .ar-only {
+            display: block;
+        }
+        
+        .en-only {
+            display: none;
+        }
+        
+        body.english .ar-only {
+            display: none;
+        }
+        
+        body.english .en-only {
+            display: block;
         }
     </style>
 </head>
 <body>
     <div class="particles-container" id="particles"></div>
     
-    <!-- GitHub Corner -->
-    <a href="https://github.com" class="github-corner" aria-label="View source on GitHub" target="_blank">
-        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2c3e50; color:#fff; position: absolute; top: 0; left: 0; border: 0;" aria-hidden="true">
-            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-            <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-            <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
-        </svg>
-    </a>
+    <!-- Language Switch -->
+    <div class="language-switch">
+        <button class="language-btn active" id="arabicBtn">العربية</button>
+        <button class="language-btn" id="englishBtn">English</button>
+    </div>
     
     <div class="container">
         <header class="floating">
-            <h1>جمال أحمد علي الرحبي</h1>
-            <div class="subtitle">مطور ويب وتطبيقات موبايل ومختص تقنية معلومات</div>
+            <h1>
+                <span class="ar-only">جمال أحمد علي الرحبي</span>
+                <span class="en-only">Jamal Ahmed Al-Rahbi</span>
+            </h1>
+            <div class="subtitle">
+                <span class="ar-only">مطور ويب وتطبيقات موبايل ومختص تقنية معلومات</span>
+                <span class="en-only">Web & Mobile Developer and IT Specialist</span>
+            </div>
             <div class="personal-info">
-                <span><i class="fas fa-birthday-cake"></i> 26/10/1995</span>
-                <span><i class="fas fa-map-marker-alt"></i> صنعاء - صنعاء القديمة</span>
+                <span><i class="fas fa-birthday-cake"></i> <span class="ar-only">26/10/1995</span><span class="en-only">1995/10/26</span></span>
+                <span><i class="fas fa-map-marker-alt"></i> <span class="ar-only">صنعاء - صنعاء القديمة</span><span class="en-only">Sana'a - Old Sana'a</span></span>
                 <span><i class="fas fa-phone"></i> 771783091</span>
                 <span><i class="fas fa-envelope"></i> jamalahmedalia@gmail.com</span>
-                <span><i class="fas fa-ring"></i> عازب</span>
-                <span><i class="fas fa-flag"></i> يمني</span>
+                <span><i class="fas fa-ring"></i> <span class="ar-only">عازب</span><span class="en-only">Single</span></span>
+                <span><i class="fas fa-flag"></i> <span class="ar-only">يمني</span><span class="en-only">Yemeni</span></span>
             </div>
         </header>
         
         <div class="main-content">
             <div class="left-column">
                 <div class="card animate-on-scroll" data-aos="fade-right">
-                    <h2><i class="fas fa-user"></i> الهدف الوظيفي</h2>
-                    <p>أملك من القدرة على التواصل الفعال مع جميع أفراد العملية التعليمية والبرمجية بما يكفل تعزيز الفائدة المنشودة للشركة والعملاء، والتطوير من الشركة التي تبحث عن الإبداع والاحترافية البرمجية.</p>
+                    <h2><i class="fas fa-user"></i> <span class="ar-only">الهدف الوظيفي</span><span class="en-only">Career Objective</span></h2>
+                    <p class="ar-only">أملك من القدرة على التواصل الفعال مع جميع أفراد العملية التعليمية والبرمجية بما يكفل تعزيز الفائدة المنشودة للشركة والعملاء، والتطوير من الشركة التي تبحث عن الإبداع والاحترافية البرمجية.</p>
+                    <p class="en-only">I possess the ability to effectively communicate with all members of the educational and programming process, ensuring the enhancement of desired benefits for the company and clients, and developing the company that seeks creativity and programming professionalism.</p>
                 </div>
                 
                 <div class="card animate-on-scroll" data-aos="fade-right" data-aos-delay="100">
-                    <h2><i class="fas fa-briefcase"></i> الخبرات العملية</h2>
+                    <h2><i class="fas fa-briefcase"></i> <span class="ar-only">الخبرات العملية</span><span class="en-only">Work Experience</span></h2>
                     <div class="experience-item">
-                        <h3>مطور مواقع إلكترونية</h3>
-                        <div class="company">عمل حر (فريلانسر)</div>
-                        <div class="date">2020 - حتى الآن</div>
-                        <p>تطوير مجموعة من المواقع الإلكترونية ومتابعة احتياجات العملاء واستقبال طلبات العملاء الجديدة.</p>
+                        <h3 class="ar-only">مطور مواقع إلكترونية</h3>
+                        <h3 class="en-only">Web Developer</h3>
+                        <div class="company ar-only">عمل حر (فريلانسر)</div>
+                        <div class="company en-only">Freelancer</div>
+                        <div class="date">2020 - <span class="ar-only">حتى الآن</span><span class="en-only">Present</span></div>
+                        <p class="ar-only">تطوير مجموعة من المواقع الإلكترونية ومتابعة احتياجات العملاء واستقبال طلبات العملاء الجديدة.</p>
+                        <p class="en-only">Developed a variety of websites, followed up on client needs, and received new client requests.</p>
                     </div>
                     <div class="experience-item">
-                        <h3>مطور أنظمة</h3>
-                        <div class="company">شركة ثري كليكس للاستشارات التقنية</div>
+                        <h3 class="ar-only">مطور أنظمة</h3>
+                        <h3 class="en-only">Systems Developer</h3>
+                        <div class="company ar-only">شركة ثري كليكس للاستشارات التقنية</div>
+                        <div class="company en-only">Three Clicks Technical Consulting Company</div>
                         <div class="date">2021 - 2024</div>
-                        <p>تحليل الأنظمة وإنشاء وتطوير المواقع الإلكترونية ضمن فريق تطوير نظام 3Clicks ERP.</p>
+                        <p class="ar-only">تحليل الأنظمة وإنشاء وتطوير المواقع الإلكترونية ضمن فريق تطوير نظام 3Clicks ERP.</p>
+                        <p class="en-only">Analyzed systems, created and developed websites as part of the 3Clicks ERP development team.</p>
                     </div>
                     <div class="experience-item">
-                        <h3>مطور مواقع تجارة إلكترونية</h3>
-                        <div class="company">طريق الابتكار</div>
-                        <div class="date">حتى الآن - 12/2024</div>
-                        <p>تطوير موقع تجارة إلكترونية متكامل.</p>
+                        <h3 class="ar-only">مطور مواقع تجارة إلكترونية</h3>
+                        <h3 class="en-only">E-commerce Developer</h3>
+                        <div class="company ar-only">طريق الابتكار</div>
+                        <div class="company en-only">Innovation Path</div>
+                        <div class="date"><span class="ar-only">حتى الآن</span><span class="en-only">Present</span> - 12/2024</div>
+                        <p class="ar-only">تطوير موقع تجارة إلكترونية متكامل.</p>
+                        <p class="en-only">Developed a comprehensive e-commerce website.</p>
                     </div>
                 </div>
                 
                 <div class="card animate-on-scroll" data-aos="fade-right" data-aos-delay="200">
-                    <h2><i class="fas fa-graduation-cap"></i> المؤهلات التعليمية</h2>
+                    <h2><i class="fas fa-graduation-cap"></i> <span class="ar-only">المؤهلات التعليمية</span><span class="en-only">Education</span></h2>
                     <div class="education-item">
-                        <h3>بكالوريوس تقنية معلومات (IT)</h3>
-                        <div class="institute">جامعة العلوم الحديثة - صنعاء</div>
+                        <h3 class="ar-only">بكالوريوس تقنية معلومات (IT)</h3>
+                        <h3 class="en-only">Bachelor of Information Technology (IT)</h3>
+                        <div class="institute ar-only">جامعة العلوم الحديثة - صنعاء</div>
+                        <div class="institute en-only">Modern Science University - Sana'a</div>
                         <div class="date">2015 - 2019</div>
-                        <p>بتقدير امتياز</p>
+                        <p class="ar-only">بتقدير امتياز</p>
+                        <p class="en-only">With Excellence Grade</p>
                     </div>
                     <div class="education-item">
-                        <h3>ثانوية عامة</h3>
-                        <div class="institute">مدرسة ثانوية الكويت - صنعاء</div>
+                        <h3 class="ar-only">ثانوية عامة</h3>
+                        <h3 class="en-only">High School Diploma</h3>
+                        <div class="institute ar-only">مدرسة ثانوية الكويت - صنعاء</div>
+                        <div class="institute en-only">Kuwait Secondary School - Sana'a</div>
                         <div class="date">2013 - 2014</div>
-                        <p>بتقدير جيد جدًا</p>
+                        <p class="ar-only">بتقدير جيد جدًا</p>
+                        <p class="en-only">With Very Good Grade</p>
                     </div>
                 </div>
                 
                 <div class="card animate-on-scroll" data-aos="fade-right" data-aos-delay="300">
-                    <h2><i class="fas fa-medal"></i> الدورات والشهادات</h2>
+                    <h2><i class="fas fa-medal"></i> <span class="ar-only">الدورات والشهادات</span><span class="en-only">Courses & Certificates</span></h2>
                     <div class="course-item">
-                        <h3>دورة تطوير تطبيقات Android</h3>
-                        <div class="institute">جامعة العلوم الحديثة</div>
-                        <div class="date">شهر واحد</div>
+                        <h3 class="ar-only">دورة تطوير تطبيقات Android</h3>
+                        <h3 class="en-only">Android App Development Course</h3>
+                        <div class="institute ar-only">جامعة العلوم الحديثة</div>
+                        <div class="institute en-only">Modern Science University</div>
+                        <div class="date ar-only">شهر واحد</div>
+                        <div class="date en-only">1 Month</div>
                     </div>
                     <div class="course-item">
-                        <h3>دورة جرافكس</h3>
-                        <div class="institute">معهد الشباب</div>
-                        <div class="date">شهر واحد</div>
+                        <h3 class="ar-only">دورة جرافكس</h3>
+                        <h3 class="en-only">Graphics Course</h3>
+                        <div class="institute ar-only">معهد الشباب</div>
+                        <div class="institute en-only">Youth Institute</div>
+                        <div class="date ar-only">شهر واحد</div>
+                        <div class="date en-only">1 Month</div>
                     </div>
                     <div class="course-item">
-                        <h3>دورات في اللغة الإنجليزية</h3>
-                        <div class="institute">معهد xp للغات والكمبيوتر (2014)</div>
-                        <div class="institute">معهد نيوهرايزن (2020-2021)</div>
-                        <div class="date">بتقدير جيد جدًا</div>
+                        <h3 class="ar-only">دورات في اللغة الإنجليزية</h3>
+                        <h3 class="en-only">English Language Courses</h3>
+                        <div class="institute ar-only">معهد xp للغات والكمبيوتر (2014)</div>
+                        <div class="institute en-only">XP Institute for Languages and Computer (2014)</div>
+                        <div class="institute ar-only">معهد نيوهرايزن (2020-2021)</div>
+                        <div class="institute en-only">New Horizon Institute (2020-2021)</div>
+                        <div class="date ar-only">بتقدير جيد جدًا</div>
+                        <div class="date en-only">With Very Good Grade</div>
                     </div>
                 </div>
             </div>
             
             <div class="right-column">
                 <div class="card animate-on-scroll" data-aos="fade-left">
-                    <h2><i class="fas fa-star"></i> المهارات التقنية</h2>
+                    <h2><i class="fas fa-star"></i> <span class="ar-only">المهارات التقنية</span><span class="en-only">Technical Skills</span></h2>
                     <div class="skills-grid">
                         <div class="skill-item"><span>Oracle</span></div>
                         <div class="skill-item"><span>PHP</span></div>
@@ -745,13 +759,15 @@
                 </div>
                 
                 <div class="card animate-on-scroll" data-aos="fade-left" data-aos-delay="100">
-                    <h2><i class="fas fa-tasks"></i> المهارات الاحترافية</h2>
+                    <h2><i class="fas fa-tasks"></i> <span class="ar-only">المهارات الاحترافية</span><span class="en-only">Professional Skills</span></h2>
                     <div class="skills-list">
                         <div class="skill">
                             <div class="progress-container">
                                 <div class="progress-info">
-                                    <span>أجادة المحاسبة</span>
-                                    <span>ممتاز</span>
+                                    <span class="ar-only">أجادة المحاسبة</span>
+                                    <span class="en-only">Accounting Proficiency</span>
+                                    <span class="ar-only">ممتاز</span>
+                                    <span class="en-only">Excellent</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress" data-width="95%"></div>
@@ -761,8 +777,10 @@
                         <div class="skill">
                             <div class="progress-container">
                                 <div class="progress-info">
-                                    <span>تطوير تطبيقات الموبايل باستخدام Flutter</span>
-                                    <span>ممتاز</span>
+                                    <span class="ar-only">تطوير تطبيقات الموبايل باستخدام Flutter</span>
+                                    <span class="en-only">Mobile App Development with Flutter</span>
+                                    <span class="ar-only">ممتاز</span>
+                                    <span class="en-only">Excellent</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress" data-width="90%"></div>
@@ -772,8 +790,10 @@
                         <div class="skill">
                             <div class="progress-container">
                                 <div class="progress-info">
-                                    <span>تطوير المواقع الإلكترونية باستخدام PHP</span>
-                                    <span>ممتاز</span>
+                                    <span class="ar-only">تطوير المواقع الإلكترونية باستخدام PHP</span>
+                                    <span class="en-only">Web Development with PHP</span>
+                                    <span class="ar-only">ممتاز</span>
+                                    <span class="en-only">Excellent</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress" data-width="92%"></div>
@@ -783,8 +803,10 @@
                         <div class="skill">
                             <div class="progress-container">
                                 <div class="progress-info">
-                                    <span>التعامل مع قواعد البيانات</span>
-                                    <span>ممتاز</span>
+                                    <span class="ar-only">التعامل مع قواعد البيانات</span>
+                                    <span class="en-only">Database Management</span>
+                                    <span class="ar-only">ممتاز</span>
+                                    <span class="en-only">Excellent</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress" data-width="88%"></div>
@@ -794,8 +816,10 @@
                         <div class="skill">
                             <div class="progress-container">
                                 <div class="progress-info">
-                                    <span>صيانة شبكات الإنترنت وتركيبها</span>
-                                    <span>جيد جدًا</span>
+                                    <span class="ar-only">صيانة شبكات الإنترنت وتركيبها</span>
+                                    <span class="en-only">Internet Networks Maintenance & Installation</span>
+                                    <span class="ar-only">جيد جدًا</span>
+                                    <span class="en-only">Very Good</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress" data-width="80%"></div>
@@ -805,8 +829,10 @@
                         <div class="skill">
                             <div class="progress-container">
                                 <div class="progress-info">
-                                    <span>صيانة الحواسيب بجميع أنواعها</span>
-                                    <span>ممتاز</span>
+                                    <span class="ar-only">صيانة الحواسيب بجميع أنواعها</span>
+                                    <span class="en-only">Computer Maintenance</span>
+                                    <span class="ar-only">ممتاز</span>
+                                    <span class="en-only">Excellent</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress" data-width="85%"></div>
@@ -817,41 +843,53 @@
                 </div>
                 
                 <div class="card animate-on-scroll" data-aos="fade-left" data-aos-delay="200">
-                    <h2><i class="fas fa-project-diagram"></i> المشاريع</h2>
+                    <h2><i class="fas fa-project-diagram"></i> <span class="ar-only">المشاريع</span><span class="en-only">Projects</span></h2>
                     <div class="project-item">
-                        <h3>تطبيق إدارة بيانات المستفيدين</h3>
-                        <div class="company">منظمة ساند</div>
+                        <h3 class="ar-only">تطبيق إدارة بيانات المستفيدين</h3>
+                        <h3 class="en-only">Beneficiary Data Management Application</h3>
+                        <div class="company ar-only">منظمة ساند</div>
+                        <div class="company en-only">SAND Organization</div>
                         <div class="date">2018-2019</div>
                     </div>
                     <div class="project-item">
-                        <h3>نظام إدارة الموارد البشرية</h3>
-                        <div class="company">وزارة الداخلية</div>
+                        <h3 class="ar-only">نظام إدارة الموارد البشرية</h3>
+                        <h3 class="en-only">Human Resources Management System</h3>
+                        <div class="company ar-only">وزارة الداخلية</div>
+                        <div class="company en-only">Ministry of Interior</div>
                         <div class="date">2019-2020</div>
                     </div>
                     <div class="project-item">
-                        <h3>نظام 3Clicks ERP</h3>
-                        <div class="company">شركة ثري كليكس</div>
+                        <h3 class="ar-only">نظام 3Clicks ERP</h3>
+                        <h3 class="en-only">3Clicks ERP System</h3>
+                        <div class="company ar-only">شركة ثري كليكس</div>
+                        <div class="company en-only">Three Clicks Company</div>
                         <div class="date">2021-2022</div>
                     </div>
                     <div class="project-item">
-                        <h3>نظام إدارة المنظمات المجتمعية</h3>
-                        <div class="company">المنظمات غير الربحية</div>
+                        <h3 class="ar-only">نظام إدارة المنظمات المجتمعية</h3>
+                        <h3 class="en-only">Community Organizations Management System</h3>
+                        <div class="company ar-only">المنظمات غير الربحية</div>
+                        <div class="company en-only">Non-Profit Organizations</div>
                         <div class="date">2022-2023</div>
                     </div>
                     <div class="project-item">
-                        <h3>نظام السجل الزراعي</h3>
-                        <div class="company">المؤسسة العامة لتنمية وإنتاج الحبوب</div>
+                        <h3 class="ar-only">نظام السجل الزراعي</h3>
+                        <h3 class="en-only">Agricultural Registry System</h3>
+                        <div class="company ar-only">المؤسسة العامة لتنمية وإنتاج الحبوب</div>
+                        <div class="company en-only">General Institution for Grain Development & Production</div>
                         <div class="date">2024</div>
                     </div>
                 </div>
                 
                 <div class="card animate-on-scroll" data-aos="fade-left" data-aos-delay="300">
-                    <h2><i class="fas fa-language"></i> اللغات</h2>
+                    <h2><i class="fas fa-language"></i> <span class="ar-only">اللغات</span><span class="en-only">Languages</span></h2>
                     <div class="skill">
                         <div class="progress-container">
                             <div class="progress-info">
-                                <span>العربية (اللغة الأم)</span>
-                                <span>ممتاز</span>
+                                <span class="ar-only">العربية (اللغة الأم)</span>
+                                <span class="en-only">Arabic (Native)</span>
+                                <span class="ar-only">ممتاز</span>
+                                <span class="en-only">Excellent</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress" data-width="100%"></div>
@@ -861,8 +899,10 @@
                     <div class="skill">
                         <div class="progress-container">
                             <div class="progress-info">
-                                <span>الإنجليزية</span>
-                                <span>جيد جدًا</span>
+                                <span class="ar-only">الإنجليزية</span>
+                                <span class="en-only">English</span>
+                                <span class="ar-only">جيد جدًا</span>
+                                <span class="en-only">Very Good</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress" data-width="75%"></div>
@@ -873,18 +913,16 @@
             </div>
         </div>
         
-        
-        
         <div class="buttons">
-            <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> طباعة السيرة الذاتية</button>
-            <button class="btn btn-outline" onclick="downloadCV()"><i class="fas fa-download"></i> تحميل السيرة الذاتية</button>
-            <button class="btn btn-primary" onclick="shareCV()"><i class="fas fa-share-alt"></i> مشاركة السيرة الذاتية</button>
+            <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> <span class="ar-only">طباعة السيرة الذاتية</span><span class="en-only">Print CV</span></button>
+            <button class="btn btn-outline" onclick="downloadCV()"><i class="fas fa-download"></i> <span class="ar-only">تحميل السيرة الذاتية</span><span class="en-only">Download CV</span></button>
+            <button class="btn btn-primary" onclick="shareCV()"><i class="fas fa-share-alt"></i> <span class="ar-only">مشاركة السيرة الذاتية</span><span class="en-only">Share CV</span></button>
         </div>
     </div>
     
     <footer>
-        <p>© 2023 - جميع الحقوق محفوظة | السيرة الذاتية لـ جمال أحمد علي الرحبي</p>
-        <p>تم تطوير هذا الموقع باستخدام HTML5 و CSS3 و JavaScript</p>
+        <p>© 2023 - <span class="ar-only">جميع الحقوق محفوظة | السيرة الذاتية لـ جمال أحمد علي الرحبي</span><span class="en-only">All Rights Reserved | CV of Jamal Ahmed Al-Rahbi</span></p>
+        <p><span class="ar-only">تم تطوير هذا الموقع باستخدام HTML5 و CSS3 و JavaScript</span><span class="en-only">This website was developed using HTML5, CSS3 and JavaScript</span></p>
     </footer>
 
     <div class="back-to-top" id="backToTop">
@@ -898,6 +936,27 @@
             duration: 1000,
             once: true,
             easing: 'ease-in-out',
+        });
+        
+        // Language switching functionality
+        const arabicBtn = document.getElementById('arabicBtn');
+        const englishBtn = document.getElementById('englishBtn');
+        const body = document.body;
+        
+        arabicBtn.addEventListener('click', () => {
+            body.classList.remove('english');
+            arabicBtn.classList.add('active');
+            englishBtn.classList.remove('active');
+            document.documentElement.setAttribute('dir', 'rtl');
+            document.documentElement.setAttribute('lang', 'ar');
+        });
+        
+        englishBtn.addEventListener('click', () => {
+            body.classList.add('english');
+            englishBtn.classList.add('active');
+            arabicBtn.classList.remove('active');
+            document.documentElement.setAttribute('dir', 'ltr');
+            document.documentElement.setAttribute('lang', 'en');
         });
         
         // Create particles background
@@ -954,7 +1013,7 @@
         
         // Download CV function
         function downloadCV() {
-            alert('سيتم تحميل السيرة الذاتية بصيغة PDF');
+            alert(body.classList.contains('english') ? 'CV will be downloaded as PDF' : 'سيتم تحميل السيرة الذاتية بصيغة PDF');
             // في التطبيق الحقيقي، هنا سيتم إضافة كود لتحويل الصفحة إلى PDF
         }
         
@@ -962,14 +1021,14 @@
         function shareCV() {
             if (navigator.share) {
                 navigator.share({
-                    title: 'السيرة الذاتية - جمال أحمد علي الرحبي',
-                    text: 'اطلع على السيرة الذاتية لجمال أحمد علي الرحبي، مطور ويب وتطبيقات موبايل',
+                    title: body.classList.contains('english') ? 'CV - Jamal Ahmed Al-Rahbi' : 'السيرة الذاتية - جمال أحمد علي الرحبي',
+                    text: body.classList.contains('english') ? 'Check out the CV of Jamal Ahmed Al-Rahbi, Web & Mobile Developer' : 'اطلع على السيرة الذاتية لجمال أحمد علي الرحبي، مطور ويب وتطبيقات موبايل',
                     url: window.location.href
                 })
                 .then(() => console.log('تم المشاركة بنجاح'))
                 .catch((error) => console.log('Error sharing:', error));
             } else {
-                alert('خاصية المشاركة غير مدعومة في متصفحك. يمكنك نسخ الرابط ومشاركته يدويًا.');
+                alert(body.classList.contains('english') ? 'Sharing is not supported in your browser. You can copy the link manually.' : 'خاصية المشاركة غير مدعومة في متصفحك. يمكنك نسخ الرابط ومشاركته يدويًا.');
             }
         }
         
